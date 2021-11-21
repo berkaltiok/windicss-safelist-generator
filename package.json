@@ -1,13 +1,15 @@
 {
-  "name": "tailwind-safelist-generator",
-  "version": "0.1.3",
-  "description": "Tailwind plugin to generate safelist.txt files",
+  "name": "windicss-safelist-generator",
+  "version": "0.1.0",
+  "description": "WindiCss plugin to generate safelist.json files",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [
-    "tailwind"
+    "windicss",
+    "safelist",
+    "safelist generator"
   ],
   "author": "",
   "license": "ISC",
