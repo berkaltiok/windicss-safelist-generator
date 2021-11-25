@@ -1,8 +1,8 @@
-# Tailwind plugin to generate safelist.txt files
+# WindiCSS plugin to generate safelist.txt files
 
-[![Latest Version on NPM](https://img.shields.io/npm/v/tailwind-safelist-generator.svg?style=flat-square)](https://npmjs.com/package/tailwind-safelist-generator)
+[![Latest Version on NPM](https://img.shields.io/npm/v/windicss-safelist-generator.svg?style=flat-square)](https://npmjs.com/package/windicss-safelist-generator)
 
-With `tailwind-safelist-generator`, you can generate a `safelist.txt` file for your theme based on a set of patterns.
+With `windicss-safelist-generator`, you can generate a `safelist.txt` file for your theme based on a set of patterns.
 
 ```js
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     './safelist.txt',
   ],
   plugins: [
-    require('tailwind-safelist-generator')({
+    require('windicss-safelist-generator')({
       path: 'safelist.txt',
       patterns: [
         'text-{colors}',
@@ -24,9 +24,9 @@ module.exports = {
 };
 ```
 
-Before you consider this plugin, we recommend reading Tailwind's [purgeable HTML docs](https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html). If this isn't an option—like when you need to generate Tailwind classes with dynamic data from a CMS—this is for you.
+Before you consider this plugin, we recommend reading WindiCSS's [purgeable HTML docs](https://windicsscss.com/docs/optimizing-for-production#writing-purgeable-html). If this isn't an option—like when you need to generate WindiCSS classes with dynamic data from a CMS—this is for you.
 
-Tailwind's JIT mode scans your codebase for class names, and generates CSS based on what it finds. If a class name is not listed explicitly, like `text-${error ? 'red' : 'green'}-500`, Tailwind won't discover it. To ensure these utilities are generated, you can maintain a file that lists them explicitly, like a `safelist.txt` file in the root of your project.
+WindiCSS's JIT mode scans your codebase for class names, and generates CSS based on what it finds. If a class name is not listed explicitly, like `text-${error ? 'red' : 'green'}-500`, WindiCSS won't discover it. To ensure these utilities are generated, you can maintain a file that lists them explicitly, like a `safelist.txt` file in the root of your project.
 
 ```txt
 text-red-100
@@ -43,11 +43,11 @@ module.exports = {
 };
 ```
 
-Maintaining this list can become cumbersome, because whenever you update your theme you need to update the safelist. That's why we created `tailwind-safelist-generator`, so you can declare a set of classes you don't want to purge that stay in sync with your theme.
+Maintaining this list can become cumbersome, because whenever you update your theme you need to update the safelist. That's why we created `windicss-safelist-generator`, so you can declare a set of classes you don't want to purge that stay in sync with your theme.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/tailwind-safelist-generator.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/tailwind-safelist-generator)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/windicss-safelist-generator.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/windicss-safelist-generator)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -58,10 +58,10 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via npm or yarn:
 
 ```bash
-npm i tailwind-safelist-generator
+npm i windicss-safelist-generator
 ```
 
-Next, register the plugin in your Tailwind configuration file and specify the patterns you want to safelist. Don't forget to add `./safelist.txt` to Tailwind's `purge` option.
+Next, register the plugin in your WindiCSS configuration file and specify the patterns you want to safelist. Don't forget to add `./safelist.txt` to WindiCSS's `purge` option.
 
 ```js
 module.exports = {
@@ -71,7 +71,7 @@ module.exports = {
     './safelist.txt',
   ],
   plugins: [
-    require('tailwind-safelist-generator')({
+    require('windicss-safelist-generator')({
       patterns: [
         'text-{colors}',
         'border-{borderWidth}',
@@ -82,7 +82,7 @@ module.exports = {
 };
 ```
 
-We recommend adding `safelist.txt` to your `.gitignore` file, since it's an artifact that gets generated whenever Tailwind generates CSS.
+We recommend adding `safelist.txt` to your `.gitignore` file, since it's an artifact that gets generated whenever WindiCSS generates CSS.
 
 ## Options
 
@@ -93,7 +93,7 @@ The path and filename where `safelist.txt` will be generated. By default, it's p
 ```js
 module.exports = {
   plugins: [
-    require('tailwind-safelist-generator')({
+    require('windicss-safelist-generator')({
       path: 'resources/css/safelist.txt',
       patterns: [
         // …
@@ -110,7 +110,7 @@ The patterns to generate the list from.
 ```js
 module.exports = {
   plugins: [
-    require('tailwind-safelist-generator')({
+    require('windicss-safelist-generator')({
       patterns: [
         'text-{color}',
         'border-{borderWidth}',
@@ -121,9 +121,9 @@ module.exports = {
 };
 ```
 
-Each token wrapped in `{}` will be passed through Tailwind's `theme()` helper to retrieve all possible values. Then the plugin generates a list of all combinations.
+Each token wrapped in `{}` will be passed through WindiCSS's `theme()` helper to retrieve all possible values. Then the plugin generates a list of all combinations.
 
-List of all available tokens can be found [here](https://tailwindcss.com/docs/theme#configuration-reference).
+List of all available tokens can be found [here](https://windicsscss.com/docs/theme#configuration-reference).
 
 ```txt
 text-{colors} → text-{red-100,red-200,…}
